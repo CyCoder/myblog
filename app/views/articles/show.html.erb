@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">My Latest Thoughts</h1>
+<h3 class="subtitle">My inner most thoughts</h3>
+
+<hr>
+
+<div class="container">
+		<%= image_tag(@article.image_url, class:"img-responsive") %>
+	  <h3><%= @article.date %></h3>
+	  <h2><%= @article.title %></h2>
+	  <p><%= @article.content %></p>
+</div>
+
+
+<%= link_to 'Edit Content', edit_article_path(@article) %> |
+<%= link_to 'Go Back', articles_path %>

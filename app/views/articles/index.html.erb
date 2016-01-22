@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">My Latest Thoughts</h1>
+<h3 class="subtitle">My inner most thoughts</h3>
+
+<hr>
+
+<div class="container">
+  <% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <%= image_tag(article.image_url, class:"img-responsive") %>
+      <h3><%= article.date %></h3>
+      <h2><%= article.title %></h2>
+      <p><%= article.content %></p>
+      <%= link_to 'Read More', article %>
+      <%= link_to 'Edit Content', edit_article_path(article) %>
+      <%= link_to 'Remove Content', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="sidebar">
+        <h2>Featured Thought:</h2>
+        
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <br>
+
+  <%= link_to 'New Article', new_article_path %>
+</div>
